@@ -7,7 +7,7 @@ import Services from './components/services/Services';
 import Qualification from './components/qualification/qualification';
 import Footer from './components/footer/footer';
 import ScrollUp from './components/scrollup/scrollup';
-import Work from './components/work/work';
+import Work from './components/work/Work';
 import { ToggleDarkmode }  from './components/darkmode/Toggle';
 
 function App() {
