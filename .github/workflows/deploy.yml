@@ -22,9 +22,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
+      - name: Debug build command
         run: |
-          NODE_ENV=production npm run build
+          echo "Node.js version:"
+          node -v
+          echo "NPM version:"
+          npm -v
+          echo "Listing node_modules/.bin:"
+          ls -la ./node_modules/.bin
+          echo "Running build command:"
+          npx vite build
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
@@ -49,3 +56,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          clean: true
+          force_orphan: true
