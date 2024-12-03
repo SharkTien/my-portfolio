@@ -4,7 +4,8 @@ import Work3 from "../../assets/Work3.png";
 import Work4 from "../../assets/Work4.png";
 import Work5 from "../../assets/Work5.png";
 import Work6 from "../../assets/Work6.png";
-import report from "../../assets/Technical_report_temporun.pdf";
+import report from "../../assets/Technical_report_Temporun.pdf";
+
 
 export const projectsData = [
     {
