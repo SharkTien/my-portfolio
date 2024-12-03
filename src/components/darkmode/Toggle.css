@@ -57,7 +57,7 @@
 
 @media screen and (max-width: 768px) {
   .toggle-container {
-    position: fixed;
+    position: relative;
     top: 2em;
     right: 2em;
   }

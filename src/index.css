@@ -78,6 +78,8 @@ button,
 input,
 textarea,
 .App {
+   overflow: hidden;
+   overflow-y: scroll;
    font-family: var(--body-font);
    font-size: var(--normal-font-size);
 }
@@ -116,8 +118,10 @@ img {
 }
 
 /*=============== REUSABLE CSS CLASSES ==============*/
+
 .section {
-  padding: 6rem 0 2rem;
+  margin-top: 5em;
+  margin-bottom: 5em;
 }
 
 .section__title {
@@ -176,11 +180,6 @@ img {
 
 
 @media screen and (max-width: 992px) {
-  .container {
-    margin-left: var(--mb-1-5);
-    margin-right: var(--mb-1-5);
-  }
-
   .main {
     padding: 1rem;
   }
@@ -200,10 +199,6 @@ img {
     margin: 0 0 var(--header-height) 0;
   }
 
-  .section {
-    padding: 2rem 0 4rem;
-  }
-
   .section__subtitle {
     margin-bottom: var(--mb-3);
   }
@@ -212,10 +207,5 @@ img {
 @media screen and (max-width: 350px) {
   :root {
     --big-font-size: 2.25rem;
-  }
-  
-  .container {
-    margin-left: var(--mb-1);
-    margin-right: var(--mb-1);
   }
 } 
