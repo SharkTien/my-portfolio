@@ -34,7 +34,7 @@ export const projectsData = [
         image: Work3,
         title: 'AI| Event Retrieval from Visual Data - 2024',
         category: ['AI', 'web', 'application'],
-        link: "https://github.com/chisngooo/HCM-AIC24"
+        link: "https://github.com/SharkTien/Cross-Modal-Video-Retrieval-Engine-with-Vision-and-Text"
     },
     {
         id: 4,
