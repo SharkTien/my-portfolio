@@ -14,7 +14,7 @@ const About = () => {
                 <img src={AboutImg} className="img about__img" alt=""/>
                 <div className="about__data">
                     <Info />
-                    <p className="about__description">hehe</p>
+                    <p className="about__description">Thriving in challenging environments and being always seeking opportunities to grow as a developer and project manager, I'm committed to delivering high-quality, reliable solutions on time. With experience in leading teams and managing complex projects, I value constructive feedback as a means to adapt and evolve in diverse projects and team dynamics.</p>
                     <a download="" href={CV} className="button button--flex">Download CV
                     <svg
                         class="button__icon"

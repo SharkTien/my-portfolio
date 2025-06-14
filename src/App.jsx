@@ -25,7 +25,6 @@ function App() {
           <Home />   
           <About />
           <Skills />
-          <Services />
           <Qualification />
           <Work />
         </main>

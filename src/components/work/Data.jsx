@@ -4,6 +4,13 @@ import Work3 from "../../assets/Work3.png";
 import Work4 from "../../assets/Work4.png";
 import Work5 from "../../assets/Work5.png";
 import Work6 from "../../assets/Work6.png";
+import Work7 from "../../assets/Work7.png";
+import Work8 from "../../assets/Work8.png";
+import Work9 from "../../assets/Work9.png";
+import Work10 from "../../assets/Work10.png";
+import Work11 from "../../assets/Work11.png";
+import Work12 from "../../assets/Work12.png";
+import Work13 from "../../assets/Work13.png";
 import report from "../../assets/Technical_report_Temporun.pdf";
 
 
@@ -49,6 +56,55 @@ export const projectsData = [
         title: 'AI| Signboard detection using YOLO11x.',
         category: ['AI'],
         link: report
+    },
+    {
+        id: 7,
+        image: Work7,
+        title: 'Freelancer | BabooHouse.',
+        category: ['web'],
+        link: 'https://baboohouse.com.vn/'
+    },
+    {
+        id: 8,
+        image: Work8,
+        title: 'Freelancer | Leximco.',
+        category: ['web'],
+        link: 'https://leximco.co.jp/'
+    },
+    {
+        id: 9,
+        image: Work9,
+        title: 'Freelancer | Ttcenter.',
+        category: ['web'],
+        link: 'https://ttcenter.com.vn/'
+    },
+    {
+        id: 10,
+        image: Work10,
+        title: 'ROOMELSA | AI Challenge',
+        category: ['AI'],
+        link: 'https://github.com/SharkTien/ROOM_ELSA_BUCCI_GANG'
+    },
+    {
+        id: 11,
+        image: Work11,
+        title: 'SE104 Project | CUE Billiard',
+        category: ['web','application', 'University'],
+        link: 'https://github.com/SharkTien/CUE-PMS'
+    },
+    {
+        id: 12,
+        image: Work12,
+        title: 'Freelancer | Utopia',
+        category: ['web','design'],
+        link: 'https://utopia.com.vn/'
+    },
+    {
+        id: 13,
+        image: Work13,
+        title: 'Freelancer | Center2',
+        category: ['web','design'],
+        link: 'https://center2.tgndigital.xyz/'
     }
 ];
 
@@ -67,5 +123,8 @@ export const projectsNav = [
     },
     {
         name: 'application'
+    },
+    {
+        name: 'University',
     }
 ]
