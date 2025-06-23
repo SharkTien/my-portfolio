@@ -11,6 +11,7 @@ import Work10 from "../../assets/Work10.png";
 import Work11 from "../../assets/Work11.png";
 import Work12 from "../../assets/Work12.png";
 import Work13 from "../../assets/Work13.png";
+import Work14 from "../../assets/Work14.png";
 import report from "../../assets/Technical_report_Temporun.pdf";
 
 
@@ -105,6 +106,13 @@ export const projectsData = [
         title: 'Freelancer | Center2',
         category: ['web','design'],
         link: 'https://center2.tgndigital.xyz/'
+    },
+    {
+        id: 14,
+        image: Work14,
+        title: 'Freelancer | AuraVibe',
+        category: ['web','design'],
+        link: 'https://www.auravibe.org/'
     }
 ];
 
