@@ -10,24 +10,8 @@ const Frontend = () => {
                     <div className="skills__data">
                         <i className="bx bx-badge-check"></i>
                     <div>
-                        <h3 className="skills__name">HTML</h3>
-                        <span className="skills__level">Advanced</span>
-                    </div>
-                    </div>
-
-                    <div className="skills__data">
-                        <i className="bx bx-badge-check"></i>
-                    <div>
-                        <h3 className="skills__name">CSS</h3>
-                        <span className="skills__level">Advanced</span>
-                    </div>
-                    </div>
-
-                    <div className="skills__data">
-                        <i className="bx bx-badge-check"></i>
-                    <div>
-                        <h3 className="skills__name">Javascript</h3>
-                        <span className="skills__level">Advanced</span>
+                        <h3 className="skills__name">Python</h3>
+                        <span className="skills__level">FastAPI, Flask</span>
                     </div>
                     </div>
 
@@ -35,15 +19,15 @@ const Frontend = () => {
                         <i className="bx bx-badge-check"></i>
                     <div>
                         <h3 className="skills__name">Git</h3>
-                        <span className="skills__level">Basic</span>
+                        <span className="skills__level">Github, Gitlab, GitActions</span>
                     </div>
                     </div>
                     
                     <div className="skills__data">
                         <i className="bx bx-badge-check"></i>
                     <div>
-                        <h3 className="skills__name">NLP</h3>
-                        <span className="skills__level">Intermediate</span>
+                        <h3 className="skills__name">Web development</h3>
+                        <span className="skills__level">HTML, CSS, Javascript, React</span>
                     </div>
                     </div>
                 </div>
@@ -51,8 +35,8 @@ const Frontend = () => {
                     <div className="skills__data">
                         <i className="bx bx-badge-check"></i>
                     <div>
-                        <h3 className="skills__name">Python</h3>
-                        <span className="skills__level">Advanced</span>
+                        <h3 className="skills__name">AI</h3>
+                        <span className="skills__level">NLP, Computer Vision, Machine Learning</span>
                     </div>
                     </div>
 
@@ -60,31 +44,15 @@ const Frontend = () => {
                         <i className="bx bx-badge-check"></i>
                     <div>
                         <h3 className="skills__name">PHP</h3>
-                        <span className="skills__level">Advanced</span>
+                        <span className="skills__level">Wordpress, Laravel</span>
                     </div>
                     </div>
 
                     <div className="skills__data">
                         <i className="bx bx-badge-check"></i>
                     <div>
-                        <h3 className="skills__name">SQL</h3>
-                        <span className="skills__level">Intermediate</span>
-                    </div>
-                    </div>
-                    
-                    <div className="skills__data">
-                        <i className="bx bx-badge-check"></i>
-                    <div>
-                        <h3 className="skills__name">n8n</h3>
-                        <span className="skills__level">Intermediate</span>
-                    </div>
-                    </div>
-
-                    <div className="skills__data">
-                        <i className="bx bx-badge-check"></i>
-                    <div>
-                        <h3 className="skills__name">Machine Learning</h3>
-                        <span className="skills__level">Intermediate</span>
+                        <h3 className="skills__name">Database</h3>
+                        <span className="skills__level">MySQL, PostgreSQL, Vector Database</span>
                     </div>
                     </div>
                 </div>

@@ -88,6 +88,16 @@ const Qualification = () => {
                             </div>
 
                             <div>
+                                <h3 className="qualification__title">Top 2 - TEMPO RUN: Signboard Detection Challenge</h3>
+                                <span className="qualification__subtitle">UIT AI Club</span>
+                                <div className="qualification__calender">
+                                    <i className="uil uil-calendar-alt"> </i>
+                                    2025
+                                </div>
+                            </div>
+                        </div>
+                        <div className="qualification__data">
+                            <div>
                                 <h3 className="qualification__title">Top 4 - ROOMELSA</h3>
                                 <a href="https://aichallenge.hcmus.edu.vn/shrec-2025/smart3droom" className="qualification__subtitle">Vietnam National University, VNUHCM-US</a>
                                 <div className="qualification__calender">
@@ -95,7 +105,27 @@ const Qualification = () => {
                                     2025
                                 </div>
                             </div>
+                            <div>
+                                <span className="qualification__rounder"></span>
+                                <span className="qualification__line"></span>
+                            </div>
+                        </div>
+                        <div className="qualification__data">
+                            <div></div>
 
+                            <div>
+                                <span className="qualification__rounder"></span>
+                                <span className="qualification__line"></span>
+                            </div>
+
+                            <div>
+                                <h3 className="qualification__title">Top 24 / 797 teams “Potential Award”</h3>
+                                <span className="qualification__subtitle">AI Challenge – Ho Chi Minh City 2025</span>
+                                <div className="qualification__calender">
+                                    <i className="uil uil-calendar-alt"> </i>
+                                    2025
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -154,6 +184,35 @@ const Qualification = () => {
                                 <div className="qualification__calender">
                                     <i className="uil uil-calendar-alt"> </i>
                                     3/2024 - 1/2025
+                                </div>
+                            </div>
+                            <div>
+                                <span className="qualification__rounder"></span>
+                                <span className="qualification__line"></span>
+                            </div>
+                        </div>
+                        <div className="qualification__data">
+                            <div></div>
+                            <div>
+                                <span className="qualification__rounder"></span>
+                                <span className="qualification__line"></span>
+                            </div>
+                            <div>
+                                <h3 className="qualification__title">National Marketing Manager of Data & Automation – AIESEC in Vietnam </h3>
+                                <span className="qualification__subtitle">AIESEC in Vietnam</span>
+                                <div className="qualification__calender">
+                                    <i className="uil uil-calendar-alt"> </i>
+                                    2025 - now
+                                </div>
+                            </div>
+                        </div>
+                        <div className="qualification__data">
+                            <div>
+                                <h3 className="qualification__title">AvePoint Trainee Program 2025 — Developer Track</h3>
+                                <span className="qualification__subtitle">AvePoint</span>
+                                <div className="qualification__calender">
+                                    <i className="uil uil-calendar-alt"> </i>
+                                    2025 - now
                                 </div>
                             </div>
                             <div>

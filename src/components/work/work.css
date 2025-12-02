@@ -91,16 +91,9 @@
     margin: 0 auto;
     overflow: hidden;
     padding: 0.75rem 2rem;
-    background-color: var(--primary-color);
-    color: #fff;
     border-radius: 0.5rem;
     font-weight: var(--font-medium);
     transition: 0.3s;
-}
-
-.work__more-btn:hover {
-    background-color: var(--primary-color-alt);
-    transform: translateY(-0.25rem);
 }
 
 .work__more-btn .button__icon {

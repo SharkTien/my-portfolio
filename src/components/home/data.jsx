@@ -3,12 +3,16 @@ import React from "react"
 const Data = () => {
     return (
         <div className="home__data">
-            <h1 className="home__title">TIEN HUYNH - TOBBIE
-            </h1>
-            <h3 className="home__subtitle"><br></br>UI/UX Designer<br></br><br></br>Web Developer - AI Engineer</h3>
-            <p className="home__description">with a passion for design and the application of technological solutions in commercial enterprise products. <br />
+            <div style={{width: "fit-content"}}>
+              <h1 className="home__title">Huynh Viet Tien</h1>
+              <hr></hr>
+              <br></br>
+            </div>
+            <h2>You can call me Felik</h2>
+            <p className="home__description">I'm a senior student based in Ho Chi Minh City, Vietnam, aiming to become a developer or data/AI engineer. I have a strong passion for exploring new challenges
+              and opportunities that push my limits and expand my thinking. I constantly seek out emerging trends and techniques to deepen my knowledge in the ields I pursue. <br />
             </p>
-            <a href="#footer" className="button button--flex">Contact Me
+            {/* <a href="#footer" className="button button--flex">Contact Me
               <svg
                   class="button__icon"
                   xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +30,7 @@ const Data = () => {
                     fill="#fff"
                   ></path>
               </svg>
-            </a>
+            </a> */}
         </div>
     )
 }

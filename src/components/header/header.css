@@ -44,10 +44,10 @@
 }
 
 .nav__link:hover {
-    color: var(--secondary-color);
+    color: var(--selected-color);
 }
 .nav__link.active-link {
-    color: var(--secondary-color);
+    color: var(--selected-color);
 }
 
 .scroll-header {

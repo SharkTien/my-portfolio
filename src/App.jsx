@@ -1,17 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/header/header';
 import Home from './components/home/home';
 import About from './components/about/about';
 import Skills from './components/skills/Skills';
 import Services from './components/services/Services';
 import Qualification from './components/qualification/qualification';
+import Research from './components/research/Research';
 import Footer from './components/footer/footer';
 import ScrollUp from './components/scrollup/scrollup';
 import Work from './components/work/Work';
 import { ToggleDarkmode }  from './components/darkmode/Toggle';
+import lightModeTexture from './assets/lightmode.png';
+import darkModeTexture from './assets/darkmode.png';
 
 function App() {
   const [isDark, setIsDark] = useState(false)   
+
+  useEffect(() => {
+    const appElement = document.querySelector('.App');
+    if (appElement) {
+      if (isDark) {
+        appElement.style.setProperty('--bg-texture', `url(${darkModeTexture})`);
+      } else {
+        appElement.style.setProperty('--bg-texture', `url(${lightModeTexture})`);
+      }
+    }
+  }, [isDark]);
 
   return (
     <>
@@ -26,6 +40,7 @@ function App() {
           <About />
           <Skills />
           <Qualification />
+          <Research />
           <Work />
         </main>
         <Footer />
