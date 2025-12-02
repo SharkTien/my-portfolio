@@ -92,6 +92,7 @@ textarea,
 .App {
   color: var(--font-color);
   position: relative;
+  width: 100vw;
 }
 
 /* Background texture layer */
