@@ -9,12 +9,13 @@ import Research from './components/research/Research';
 import Footer from './components/footer/footer';
 import ScrollUp from './components/scrollup/scrollup';
 import Work from './components/work/Work';
-import { ToggleDarkmode }  from './components/darkmode/Toggle';
+import { ToggleDarkmode } from './components/darkmode/Toggle';
 import lightModeTexture from './assets/lightmode.png';
 import darkModeTexture from './assets/darkmode.png';
+import Marquee from './components/marquee/Marquee';
 
 function App() {
-  const [isDark, setIsDark] = useState(false)   
+  const [isDark, setIsDark] = useState(false)
 
   useEffect(() => {
     const appElement = document.querySelector('.App');
@@ -29,14 +30,15 @@ function App() {
 
   return (
     <>
-    <div className="App" data-theme={isDark ? "dark" : "light"}>
-      <ToggleDarkmode
-        isChecked={isDark}
-        handleChange={() => setIsDark(!isDark)}
-      />
-      <Header />
+      <div className="App" data-theme={isDark ? "dark" : "light"}>
+        <ToggleDarkmode
+          isChecked={isDark}
+          handleChange={() => setIsDark(!isDark)}
+        />
+        <Header />
         <main class="main">
-          <Home />   
+          <Home />
+          <Marquee />
           <About />
           <Skills />
           <Qualification />
@@ -45,7 +47,7 @@ function App() {
         </main>
         <Footer />
         <ScrollUp />
-    </div>
+      </div>
     </>
   )
 }

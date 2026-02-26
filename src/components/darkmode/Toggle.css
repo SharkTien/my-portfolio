@@ -1,59 +1,60 @@
 .toggle-container {
-    position: fixed;
-    bottom: 2em;
-    left: 2em;
-  }
-  
-  .toggle {
-    visibility: hidden;
-  }
-  
-  .toggle + label {
-    display: flex;
-    align-items: center;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: var(--primary-color);
-  }
-  
-  .toggle+label::before {
-    content: "";
-    height: 1em;
-    width: 2em;
-    border-radius: 1em;
-    background-color: var(--secondary-color);
-    margin-right: 0.5em;
-    transition: background-color 250ms ease-in-out;
-    
-    box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.6);
-  }
-  
-  .toggle+label::after {
-    content: "";
-    height: 0.8em;
-    width: 0.8em;
-    border-radius: 1em;
-    background-color: var(--primary-color);
-    position: absolute;
-    left: 0.2em;
-    transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
-  }
-  
-  .toggle:checked+label::after {
-    transform: translateX(100%);
-  }
+  position: fixed;
+  bottom: 2em;
+  z-index: 9999;
+  left: 2em;
+}
 
-  .title {
-    color: var(--primary-text-color);
-    margin-bottom: 50px;
-  }
-  
-  .box {
-    padding: 20px;
-    border-radius: 10px;
-    background-color: var(--foreground-color);
-    color: var(--secondary-text-color);
-  }
+.toggle {
+  visibility: hidden;
+}
+
+.toggle+label {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.toggle+label::before {
+  content: "";
+  height: 1em;
+  width: 2em;
+  border-radius: 1em;
+  background-color: var(--secondary-color);
+  margin-right: 0.5em;
+  transition: background-color 250ms ease-in-out;
+
+  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+.toggle+label::after {
+  content: "";
+  height: 0.8em;
+  width: 0.8em;
+  border-radius: 1em;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: 0.2em;
+  transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+}
+
+.toggle:checked+label::after {
+  transform: translateX(100%);
+}
+
+.title {
+  color: var(--primary-text-color);
+  margin-bottom: 50px;
+}
+
+.box {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--foreground-color);
+  color: var(--secondary-text-color);
+}
 
 @media screen and (max-width: 768px) {
   .toggle-container {

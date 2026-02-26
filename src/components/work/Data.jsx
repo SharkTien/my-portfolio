@@ -12,7 +12,10 @@ import Work11 from "../../assets/Work11.png";
 import Work12 from "../../assets/Work12.png";
 import Work13 from "../../assets/Work13.png";
 import Work14 from "../../assets/Work14.png";
+import Work15 from "../../assets/Work15.png";
+import Work16 from "../../assets/Work16.png";
 import report from "../../assets/Technical_report_Temporun.pdf";
+import dashboardPdf from "../../assets/AIV dashboard.pdf";
 
 
 export const projectsData = [
@@ -90,29 +93,43 @@ export const projectsData = [
         id: 11,
         image: Work11,
         title: 'SE104 Project | CUE Billiard',
-        category: ['web','application', 'University'],
+        category: ['web', 'application', 'University'],
         link: 'https://github.com/SharkTien/CUE-PMS'
     },
     {
         id: 12,
         image: Work12,
         title: 'Freelancer | Utopia',
-        category: ['web','design'],
+        category: ['web', 'design'],
         link: 'https://utopia.com.vn/'
     },
     {
         id: 13,
         image: Work13,
         title: 'Freelancer | Center2',
-        category: ['web','design'],
+        category: ['web', 'design'],
         link: 'https://center2.tgndigital.xyz/'
     },
     {
         id: 14,
         image: Work14,
         title: 'Freelancer | AuraVibe',
-        category: ['web','design'],
+        category: ['web', 'design'],
         link: 'https://www.auravibe.org/'
+    },
+    {
+        id: 15,
+        image: Work15,
+        title: 'AI| [Gucci] Case Study - "AI Co-Worker" Engine',
+        category: ['AI', 'application'],
+        link: 'https://github.com/SharkTien/AI-CoWorker-Engine'
+    },
+    {
+        id: 16,
+        image: Work16,
+        title: 'AIESEC| AIV Dashboard',
+        category: ['Web', 'application'],
+        link: dashboardPdf
     }
 ];
 

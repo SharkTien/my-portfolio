@@ -11,8 +11,8 @@
   --bg-color: #fff;
 
   --header-height: 3rem;
-  
-  --body-font:  "Roboto Mono", monospace;
+
+  --body-font: "Roboto Mono", monospace;
   --heading-font: "Rubik", sans-serif;
 
   --big-font-size: 3.5rem;
@@ -59,7 +59,7 @@
     --h3-font-size: 1.25rem;
     --normal-font-size: 0.938rem;
     --small-font-size: 0.813rem;
-    --smaller-font-size: 0.75rem; 
+    --smaller-font-size: 0.75rem;
   }
 }
 
@@ -79,10 +79,10 @@ button,
 input,
 textarea,
 .App {
-   overflow: hidden;
-   overflow-y: scroll;
-   font-family: var(--body-font);
-   font-size: var(--normal-font-size);
+  overflow: hidden;
+  overflow-y: scroll;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
 }
 
 .main {
@@ -112,7 +112,9 @@ textarea,
   pointer-events: none;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--heading-font);
   color: var(--primary-color);
 }
@@ -152,7 +154,7 @@ img {
   display: block;
   line-height: 1.5rem;
   font-size: var(--small-font-size);
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .section__title,
@@ -216,7 +218,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  body, .App {
+
+  body,
+  .App {
     margin: 0 0 var(--header-height) 0;
   }
 
@@ -229,4 +233,4 @@ img {
   :root {
     --big-font-size: 2.25rem;
   }
-} 
+}

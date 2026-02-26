@@ -8,52 +8,36 @@ const Frontend = () => {
             <div className="skills__box">
                 <div className="skills__group">
                     <div className="skills__data">
-                        <i className="bx bx-badge-check"></i>
-                    <div>
-                        <h3 className="skills__name">Python</h3>
-                        <span className="skills__level">FastAPI, Flask</span>
-                    </div>
+                        <i className="bx bx-check-shield"></i>
+                        <div>
+                            <h3 className="skills__name">Scripting</h3>
+                            <span className="skills__level">Python, C++,<br />SQL, JS</span>
+                        </div>
                     </div>
 
                     <div className="skills__data">
-                        <i className="bx bx-badge-check"></i>
-                    <div>
-                        <h3 className="skills__name">Git</h3>
-                        <span className="skills__level">Github, Gitlab, GitActions</span>
+                        <i className="bx bx-check-shield"></i>
+                        <div>
+                            <h3 className="skills__name">Tools &<br />Systems</h3>
+                            <span className="skills__level">Docker, Git,<br />Linux,<br />VectorDB</span>
+                        </div>
                     </div>
-                    </div>
-                    
+
                     <div className="skills__data">
-                        <i className="bx bx-badge-check"></i>
-                    <div>
-                        <h3 className="skills__name">Web development</h3>
-                        <span className="skills__level">HTML, CSS, Javascript, React</span>
-                    </div>
+                        <i className="bx bx-check-shield"></i>
+                        <div>
+                            <h3 className="skills__name">Web<br />development</h3>
+                            <span className="skills__level">React,<br />FastAPI</span>
+                        </div>
                     </div>
                 </div>
                 <div className="skills__group">
                     <div className="skills__data">
-                        <i className="bx bx-badge-check"></i>
-                    <div>
-                        <h3 className="skills__name">AI</h3>
-                        <span className="skills__level">NLP, Computer Vision, Machine Learning</span>
-                    </div>
-                    </div>
-
-                    <div className="skills__data">
-                        <i className="bx bx-badge-check"></i>
-                    <div>
-                        <h3 className="skills__name">PHP</h3>
-                        <span className="skills__level">Wordpress, Laravel</span>
-                    </div>
-                    </div>
-
-                    <div className="skills__data">
-                        <i className="bx bx-badge-check"></i>
-                    <div>
-                        <h3 className="skills__name">Database</h3>
-                        <span className="skills__level">MySQL, PostgreSQL, Vector Database</span>
-                    </div>
+                        <i className="bx bx-check-shield"></i>
+                        <div>
+                            <h3 className="skills__name">AI</h3>
+                            <span className="skills__level">Computer<br />Vision,<br />Vision-<br />Language<br />Models,<br />NLP, Data<br />Analytics,<br />PyTorch,<br />Scikit-<br />Learn</span>
+                        </div>
                     </div>
                 </div>
             </div>
