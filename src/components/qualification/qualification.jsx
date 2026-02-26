@@ -50,6 +50,12 @@ const educationData = [
         subtitle: "AI Challenge – Ho Chi Minh City 2025",
         date: "2025",
         isHighSchool: false
+    },
+    {
+        title: "Student Exchange Program",
+        subtitle: "Kyoto University (Graduate School of Global Environmental Studies)",
+        date: "8/2025",
+        isHighSchool: false
     }
 ];
 
