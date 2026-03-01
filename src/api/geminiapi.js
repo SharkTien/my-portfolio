@@ -1,34 +1,13 @@
-import { RAG_SYSTEM_PROMPT } from './systemPrompt';
-
-const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-
 export async function chatWithGemini(prompt, messagesHistory = [], onProgress) {
-    if (!apiKey) {
-        throw new Error("Missing VITE_GEMINI_API_KEY. Please verify your .env.local file.");
-    }
-
     try {
-        const formattedHistory = messagesHistory
-            .filter(msg => msg.id !== 1)
-            .map(msg => ({
-                role: msg.sender === 'user' ? 'user' : 'model',
-                parts: [{ text: msg.text }]
-            }));
-
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse&key=${apiKey}`, {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || ''}/api/gemini`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                systemInstruction: {
-                    role: "user",
-                    parts: [{ text: RAG_SYSTEM_PROMPT }]
-                },
-                contents: [
-                    ...formattedHistory,
-                    { role: "user", parts: [{ text: prompt }] }
-                ]
+                prompt,
+                messagesHistory
             })
         });
 
