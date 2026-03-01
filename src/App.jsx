@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import './App.css';
 
@@ -78,7 +78,7 @@ function App() {
 
 export default function AppWrapper() {
   return (
-    <Router basename="/my-portfolio">
+    <Router>
       <App />
     </Router>
   )
