@@ -23,6 +23,10 @@ jobs:
 
     - name: Build project
       run: npm run build
+      env:
+        VITE_DEEPSEEK_API_KEY: ${{ secrets.VITE_DEEPSEEK_API_KEY }}
+        VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
+        VITE_ROUTER_API_KEY: ${{ secrets.VITE_ROUTER_API_KEY }}
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
