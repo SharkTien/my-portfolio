@@ -11,7 +11,7 @@ const Frontend = () => {
                         <i className="bx bx-check-shield"></i>
                         <div>
                             <h3 className="skills__name">Scripting</h3>
-                            <span className="skills__level">Python, C++,<br />SQL, JS</span>
+                            <span className="skills__level">Python, C#,<br />SQL, JS</span>
                         </div>
                     </div>
 
@@ -36,7 +36,7 @@ const Frontend = () => {
                         <i className="bx bx-check-shield"></i>
                         <div>
                             <h3 className="skills__name">AI</h3>
-                            <span className="skills__level">Computer<br />Vision,<br />Vision-<br />Language<br />Models,<br />NLP, Data<br />Analytics,<br />PyTorch,<br />Scikit-<br />Learn</span>
+                            <span className="skills__level">CV, Vision-<br />Language<br />Models,<br />NLP, Data<br />Analytics,<br />PyTorch,<br />Scikit-<br />Learn</span>
                         </div>
                     </div>
                 </div>
