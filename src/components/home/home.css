@@ -62,7 +62,45 @@
 
 .home__description {
     max-width: 700px;
-    margin-bottom: var(--mb-3);
+    margin-bottom: var(--mb-1);
+}
+
+/* ── Chat with me button ── */
+.home__chat-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+    padding: 0.55rem 1.25rem;
+    border: 1.5px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+    border-radius: 50px;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-medium);
+    font-family: var(--body-font);
+    text-decoration: none;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.home__chat-btn i {
+    font-size: 1rem;
+}
+
+.home__chat-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.home__chat-hint {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--primary-color);
+    opacity: 0.65;
+    font-style: italic;
+    margin-top: -0.3rem;
+    letter-spacing: 0.02em;
 }
 
 .home__img {

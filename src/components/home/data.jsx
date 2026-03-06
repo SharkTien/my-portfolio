@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom";
 import Social from "./social";
 
 const Data = () => {
@@ -14,6 +15,11 @@ const Data = () => {
             I'm a developer/ AI engineer based in Ho Chi Minh City, Vietnam. I have a strong passion for exploring new challenges
             and opportunities that push my limits and expand my thinking. <br />
           </p>
+          <Link to="/chat" className="home__chat-btn">
+            <i className="uil uil-comment-alt-dots"></i>
+            Chat with me
+          </Link>
+          <span className="home__chat-hint">✦ Analyze my CV easier with AI</span>
           <Social />
         </div>
       </div>
