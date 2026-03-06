@@ -18,29 +18,45 @@ export async function chatWithDeepSeek(prompt, messagesHistory = [], onProgress)
         const reader = response.body.getReader();
         const decoder = new TextDecoder("utf-8");
         let fullResponse = "";
+        let buffer = "";
+
+        const processLine = (line) => {
+            if (line.startsWith("data: ") && line.trim() !== "data: [DONE]") {
+                try {
+                    const data = JSON.parse(line.slice(6));
+                    const content = data.choices[0]?.delta?.content || "";
+                    if (content) {
+                        fullResponse += content;
+                        if (onProgress) {
+                            onProgress(fullResponse);
+                        }
+                    }
+                } catch (e) {
+                    // Ignore JSON errors from partial/empty chunks
+                }
+            }
+        };
 
         while (true) {
             const { done, value } = await reader.read();
-            if (done) break;
 
-            const chunk = decoder.decode(value, { stream: true });
-            const lines = chunk.split("\n");
+            if (value) {
+                buffer += decoder.decode(value, { stream: true });
+            }
+
+            if (done) {
+                const lines = buffer.split("\n");
+                for (const line of lines) {
+                    processLine(line);
+                }
+                break;
+            }
+
+            const lines = buffer.split("\n");
+            buffer = lines.pop() || ""; // Keep the last incomplete line
 
             for (const line of lines) {
-                if (line.startsWith("data: ") && line.trim() !== "data: [DONE]") {
-                    try {
-                        const data = JSON.parse(line.slice(6));
-                        const content = data.choices[0]?.delta?.content || "";
-                        if (content) {
-                            fullResponse += content;
-                            if (onProgress) {
-                                onProgress(fullResponse);
-                            }
-                        }
-                    } catch (e) {
-                        // Ignore JSON errors from partial/empty chunks
-                    }
-                }
+                processLine(line);
             }
         }
 
