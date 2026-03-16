@@ -1,0 +1,169 @@
+.certificates__inventory {
+    padding: 2rem;
+    /* Increased padding to prevent edge bleeding */
+    background-color: var(--secondary-color);
+    border: 3px solid var(--primary-color);
+    border-radius: 1rem;
+    box-shadow:
+        inset 0 0 15px rgba(0, 0, 0, 0.05),
+        0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 520px;
+    /* Matching the sidebar width */
+    height: 750px;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.certificates__inventory-title {
+    font-size: 0.85rem;
+    font-weight: var(--font-bold);
+    color: var(--bg-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 8px;
+    background: var(--primary-color);
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.certificates__container-inventory {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 520px;
+    /* Fixed height to match common timeline length */
+    overflow-y: auto;
+    padding-right: 15px;
+    padding-left: 2px;
+}
+
+/* Custom Scrollbar */
+.certificates__container-inventory::-webkit-scrollbar {
+    width: 6px;
+}
+
+.certificates__container-inventory::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.certificates__container-inventory::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+.certificates__slot {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--bg-color);
+    border: 3px solid var(--primary-color);
+    border-radius: 0.75rem;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    display: block;
+    /* Ensure it takes full width as a link */
+    text-decoration: none;
+    /* Remove link underline */
+}
+
+.certificates__slot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.certificates__slot-img-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.certificates__slot-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center;
+    display: block;
+}
+
+.certificates__slot-overlay-permanent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+    padding: 2rem 1rem 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: none;
+    /* Let clicks pass to the card if needed */
+}
+
+.certificates__slot-info {
+    flex: 1;
+}
+
+.certificates__slot-title {
+    color: #fff;
+    font-size: var(--small-font-size);
+    font-weight: var(--font-semi-bold);
+    margin-bottom: 0.2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.certificates__slot-date {
+    color: #eee;
+    font-size: var(--smaller-font-size);
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.certificates__slot-link-icon {
+    pointer-events: none;
+    /* Let clicks pass to the parent link */
+    color: #fff;
+    font-size: 1.1rem;
+    background: var(--primary-color);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    margin-left: 0.75rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.certificates__slot:hover .certificates__slot-link-icon {
+    background: #fff;
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.certificates__slot-empty {
+    border: 2px dashed rgba(162, 123, 92, 0.3);
+    background-color: rgba(0, 0, 0, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 992px) {
+    .certificates__inventory {
+        width: 100%;
+        max-width: 500px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .certificates__container-inventory {
+        gap: 1rem;
+    }
+}

@@ -9,6 +9,7 @@ import Footer from '../components/footer/footer';
 import ScrollUp from '../components/scrollup/scrollup';
 import Marquee from '../components/marquee/Marquee';
 import Work from '../components/work/Work';
+import Certificates from '../components/certificates/Certificates';
 
 const Portfolio = () => {
     return (

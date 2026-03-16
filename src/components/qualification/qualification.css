@@ -1,5 +1,6 @@
 .qualification__container {
-    max-width: 768px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .qualification__tabs {
@@ -29,9 +30,42 @@
     color: var(--primary-color);
 }
 
+.qualification__journey {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.qualification__main-column {
+    flex: 1;
+    min-width: 380px;
+    max-width: 700px;
+}
+
+.qualification__inventory-aside {
+    flex: 0 0 520px;
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-self: stretch; /* Crucial for height matching in flex containers */
+}
+
+.certificates__container-inventory {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+    height: 0; /* Keep it from expanding beyond parent flex height */
+}
+
 .qualification__sections {
     display: grid;
-    grid-template-columns: 0.5fr;
+    grid-template-columns: 1fr;
     justify-content: center;
 }
 
@@ -77,7 +111,7 @@
     width: 1px;
     height: 100%;
     background-color: var(--font-color);
-    transform: translate(6px, -7px);    
+    transform: translate(6px, -7px);
 }
 
 
@@ -86,15 +120,15 @@
         margin-left: auto;
         margin-right: auto;
     }
-  }
-  
-  @media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 768px) {
     .qualification__container {
         margin-left: var(--mb-1-5);
     }
-  }
+}
 
-  @media screen and (max-width: 576px) {
+@media screen and (max-width: 576px) {
     .qualification__sections {
         grid-template-columns: initial;
     }
@@ -102,10 +136,10 @@
     .qualification__button {
         margin: 0 var(--mb-0-75);
     }
-  }
-  
-  @media screen and (max-width: 350px) {
+}
+
+@media screen and (max-width: 350px) {
     .qualification__data {
         gap: 0.5rem;
     }
-  } 
+}

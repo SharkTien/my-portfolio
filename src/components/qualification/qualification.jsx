@@ -1,41 +1,25 @@
 import React, { useState } from "react";
 import "./qualification.css";
+import Certificates from "../certificates/Certificates";
 
 const educationData = [
     {
-        title: "3rd Prize -Science and Technology Competition",
-        subtitle: "Ministry of Education and Training",
-        date: "2021",
-        isHighSchool: true
-    },
-    {
-        title: "Bronze Prize - Vietnam National Informatics Olympiad",
-        subtitle: "VAIP & Ministry of Education and Training",
-        date: "2021",
-        isHighSchool: true
-    },
-    {
-        title: "2nd Prize - Youth Creativity Competition",
-        subtitle: "Thua Thien Hue Province - Ho Chi Minh Communist Youth Union",
-        date: "2021",
-        isHighSchool: true
-    },
-    {
-        title: "IELTS 6.5",
-        subtitle: "Vietnam - Institute",
-        date: "23/3/2023",
+        title: "Google Data Analytics Professional Certificate(v.3)",
+        subtitle: "Google/Coursera",
+        link: "https://www.credly.com/badges/99953c7a-127a-4055-9af4-2bbcc42fcc3e/linked_in_profile",
+        date: "3/2026",
         isHighSchool: false
     },
     {
-        title: "Bachelor of Artificial Intelligence",
-        subtitle: "VNUHCM - University of Information Technology | GPA: 3.31/4.0",
-        date: "2023 - 2027",
+        title: "Student Exchange Program",
+        subtitle: "Kyoto University (Graduate School of Global Environmental Studies)",
+        date: "8/2025",
         isHighSchool: false
     },
     {
-        title: "Top 2 - TEMPO RUN: Signboard Detection Challenge",
-        subtitle: "UIT AI Club",
-        date: "2024",
+        title: "Top 24 / 797 teams “Potential Award”",
+        subtitle: "AI Challenge – Ho Chi Minh City 2025",
+        date: "2025",
         isHighSchool: false
     },
     {
@@ -46,36 +30,48 @@ const educationData = [
         isHighSchool: false
     },
     {
-        title: "Top 24 / 797 teams “Potential Award”",
-        subtitle: "AI Challenge – Ho Chi Minh City 2025",
-        date: "2025",
+        title: "Top 2 - TEMPO RUN: Signboard Detection Challenge",
+        subtitle: "UIT AI Club",
+        date: "2024",
         isHighSchool: false
     },
     {
-        title: "Student Exchange Program",
-        subtitle: "Kyoto University (Graduate School of Global Environmental Studies)",
-        date: "8/2025",
+        title: "Bachelor of Artificial Intelligence",
+        subtitle: "VNUHCM - University of Information Technology | GPA: 3.31/4.0",
+        date: "2023 - 2027",
         isHighSchool: false
+    },
+    {
+        title: "IELTS 6.5",
+        subtitle: "Vietnam - Institute",
+        date: "23/3/2023",
+        isHighSchool: false
+    },
+    {
+        title: "2nd Prize - Youth Creativity Competition",
+        subtitle: "Thua Thien Hue Province - Ho Chi Minh Communist Youth Union",
+        date: "2021",
+        isHighSchool: true
+    },
+    {
+        title: "Bronze Prize - Vietnam National Informatics Olympiad",
+        subtitle: "VAIP & Ministry of Education and Training",
+        date: "2021",
+        isHighSchool: true
+    },
+    {
+        title: "3rd Prize -Science and Technology Competition",
+        subtitle: "Ministry of Education and Training",
+        date: "2021",
+        isHighSchool: true
     }
 ];
 
 const experienceData = [
     {
-        title: "Frontend Dev",
-        subtitle: "Mentor at High School Science and Technology Club",
-        date: "2021 - 2022",
-        isHighSchool: true
-    },
-    {
-        title: "Dev Freelancer",
-        subtitle: "Digital TGN",
-        date: "10/2024 - 10/2025",
-        isHighSchool: false
-    },
-    {
-        title: "International Relations & Matching Team",
-        subtitle: "AIESEC in Vietnam",
-        date: "3/2024 - 1/2025",
+        title: "Developer Trainee",
+        subtitle: "AvePoint",
+        date: "11/2025 - 2/2026",
         isHighSchool: false
     },
     {
@@ -85,10 +81,22 @@ const experienceData = [
         isHighSchool: false
     },
     {
-        title: "Developer Trainee",
-        subtitle: "AvePoint",
-        date: "11/2025 - 2/2026",
+        title: "International Relations & Matching Team",
+        subtitle: "AIESEC in Vietnam",
+        date: "3/2024 - 1/2025",
         isHighSchool: false
+    },
+    {
+        title: "Dev Freelancer",
+        subtitle: "Digital TGN",
+        date: "10/2024 - 10/2025",
+        isHighSchool: false
+    },
+    {
+        title: "Frontend Dev",
+        subtitle: "Mentor at High School Science and Technology Club",
+        date: "2021 - 2022",
+        isHighSchool: true
     }
 ];
 
@@ -146,11 +154,11 @@ const Qualification = () => {
     };
 
     return (
-        <section className="qualification section" id="portfolio">
+        <div className="qualification__content-wrapper" id="portfolio">
             <h2 className="section__title">Education & Experience</h2>
             <span className="section__subtitle">My personel journey</span>
 
-            <div className="qualification__container container">
+            <div className="qualification__container">
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
                     <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', gap: '8px', fontSize: 'var(--small-font-size)', color: 'var(--text-color)' }}>
                         <input
@@ -163,28 +171,35 @@ const Qualification = () => {
                     </label>
                 </div>
 
-                <div className="qualification__tabs">
-                    <div onClick={() => toggleTab(1)} className={toggleState === 1 ? "qualification__button qualification__active button--flex" : "qualification__button button--flex"}>
-                        <i className="uil uil-graduation-cap qualification__icon"></i> Education
+                <div className="qualification__journey">
+                    <div className="qualification__main-column">
+                        <div className="qualification__tabs">
+                            <div onClick={() => toggleTab(1)} className={toggleState === 1 ? "qualification__button qualification__active button--flex" : "qualification__button button--flex"}>
+                                <i className="uil uil-graduation-cap qualification__icon"></i> Education
+                            </div>
+
+                            <div onClick={() => toggleTab(2)} className={toggleState === 2 ? "qualification__button qualification__active button--flex" : "qualification__button button--flex"}>
+                                <i className="uil uil-briefcase-alt qualification__icon"></i> Experience
+                            </div>
+                        </div>
+
+                        <div className="qualification__sections">
+                            <div className={toggleState === 1 ? "qualification__content qualification__content-active" : "qualification__content"}>
+                                {renderData(educationData)}
+                            </div>
+
+                            <div className={toggleState === 2 ? "qualification__content qualification__content-active" : "qualification__content"}>
+                                {renderData(experienceData)}
+                            </div>
+                        </div>
                     </div>
-
-                    <div onClick={() => toggleTab(2)} className={toggleState === 2 ? "qualification__button qualification__active button--flex" : "qualification__button button--flex"}>
-                        <i className="uil uil-briefcase-alt qualification__icon"></i> Experience
-                    </div>
-
-                </div>
-
-                <div className="qualification__sections">
-                    <div className={toggleState === 1 ? "qualification__content qualification__content-active" : "qualification__content"}>
-                        {renderData(educationData)}
-                    </div>
-
-                    <div className={toggleState === 2 ? "qualification__content qualification__content-active" : "qualification__content"}>
-                        {renderData(experienceData)}
+                    
+                    <div className="qualification__inventory-aside">
+                        <Certificates />
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
 
