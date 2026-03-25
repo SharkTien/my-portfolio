@@ -18,7 +18,7 @@ const Info = () => {
             <div className="about__box">
                 <i className="bx bx-star about__icon"></i>
                 <h3 className="about__title">GPA</h3>
-                <span className="about__subtitle"><p>3.3/4.0</p></span>
+                <span className="about__subtitle"><p>3.5/4.0</p></span>
             </div>
 
         </div>

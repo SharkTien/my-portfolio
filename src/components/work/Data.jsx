@@ -20,9 +20,21 @@ import cyclisticImg from "../../assets/cyclistic_case_study.png";
 import cyclisticPdf from "../../assets/Huynh Viet Tien _ CASE Study Cyclistic.pdf";
 import iucnImg from "../../assets/projectPic/IUCN.png";
 import reportPdf from "../../assets/REPORT.pdf";
+import AisessImg from "../../assets/interviewerAisess.png";
+
 
 
 export const projectsData = [
+    {
+        id: 19,
+        image: AisessImg,
+        title: "AI| Aisess - HR Talent Screening Agent",
+        category: ['AI', 'web', 'application'],
+        github: "https://github.com/SharkTien/GDGoC---Aisess",
+        description: "An AI-powered professional interview system featuring context-aware mock interviews, smart talent screening agent, and 6D competency scoring with interactive radar charts for personalized career feedback.",
+        techstack: "FastAPI, Next.js, OpenAI, SQLModel"
+    },
+
     {
         id: 18,
         image: iucnImg,
@@ -46,7 +58,7 @@ export const projectsData = [
         id: 16,
         image: Work16,
         title: 'AIESEC| AIV Dashboard',
-        category: ['Web', 'application'],
+        category: ['Web', 'application', 'data'],
         link: dashboardPdf,
         github: "https://github.com/SharkTien/aiv-dashboard",
         description: 'A detailed data dashboard for AIESEC developed to provide interactive visualization and analytics for organizational insights.',

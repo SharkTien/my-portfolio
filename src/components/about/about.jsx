@@ -30,7 +30,7 @@ const About = () => {
                             </li>
                         </ul>
                     </div>
-                    <a download="" href={CV} className="button button--flex">Download CV
+                    {/* <a download="" href={CV} className="button button--flex">Download CV
                         <svg
                             class="button__icon"
                             xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@ const About = () => {
                             ></path>
                         </svg>
 
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </section>

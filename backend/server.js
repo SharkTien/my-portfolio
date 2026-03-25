@@ -33,7 +33,7 @@ Here is Tien Huynh's (Felik's) detailed profile:
 
 
 # Education
-- Bachelor of Artificial Intelligence at VNUHCM - University of Information Technology (2023 - 2027) | GPA: 3.31/4.0
+- Bachelor of Artificial Intelligence at VNUHCM - University of Information Technology (2023 - 2027) | GPA: 3.5/4.0
 - Student Exchange Program at Kyoto University (Graduate School of Global Environmental Studies) (August 2025)
 - IELTS: 6.5 (March 2023)
 

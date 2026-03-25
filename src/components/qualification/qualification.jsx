@@ -37,7 +37,7 @@ const educationData = [
     },
     {
         title: "Bachelor of Artificial Intelligence",
-        subtitle: "VNUHCM - University of Information Technology | GPA: 3.31/4.0",
+        subtitle: "VNUHCM - University of Information Technology | GPA: 3.5/4.0",
         date: "2023 - 2027",
         isHighSchool: false
     },
@@ -137,6 +137,7 @@ const Qualification = () => {
                                 <span className="qualification__rounder"></span>
                                 <span className="qualification__line"></span>
                             </div>
+                            <div></div>
                         </>
                     ) : (
                         <>
@@ -156,7 +157,7 @@ const Qualification = () => {
     return (
         <div className="qualification__content-wrapper" id="portfolio">
             <h2 className="section__title">Education & Experience</h2>
-            <span className="section__subtitle">My personel journey</span>
+            <span className="section__subtitle">My personal journey</span>
 
             <div className="qualification__container">
                 <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
@@ -193,7 +194,7 @@ const Qualification = () => {
                             </div>
                         </div>
                     </div>
-                    
+
                     <div className="qualification__inventory-aside">
                         <Certificates />
                     </div>

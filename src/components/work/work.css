@@ -3,7 +3,9 @@
     justify-content: center;
     align-items: center;
     column-gap: 0.75rem;
+    row-gap: 0.5rem;
     margin-bottom: var(--mb-2);
+    flex-wrap: wrap;
 }
 
 .work__item {
@@ -34,7 +36,8 @@
 }
 
 .work__img {
-    width: 295px;
+    width: 100%;
+    max-width: 295px;
     height: 200px;
     object-fit: cover;
     border-radius: 1rem;
@@ -42,14 +45,16 @@
 }
 
 .work__title {
-    width: 295px;
+    width: 100%;
+    max-width: 295px;
     font-size: var(--normal-font-size);
     font-weight: var(--font-medium);
     margin-bottom: var(--mb-0-5);
 }
 
 .work__description-container {
-    width: 295px;
+    width: 100%;
+    max-width: 295px;
     margin-bottom: var(--mb-1);
 }
 
@@ -70,7 +75,8 @@
     font-style: italic;
     white-space: pre-line;
     word-break: break-word;
-    width: 295px;
+    width: 100%;
+    max-width: 295px;
 }
 
 .work__techstack-label {
@@ -230,7 +236,8 @@
 }
 
 @media screen and (max-width: 992px) {
-    .wwork__container {
+    .work__container {
+        grid-template-columns: repeat(2, max-content);
         gap: 1.25rem;
     }
 
