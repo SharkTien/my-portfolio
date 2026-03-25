@@ -11,9 +11,12 @@ import darkModeTexture from './assets/darkmode.png';
 
 const AnimatedRoutes = ({ isDark, setIsDark }) => {
   const location = useLocation();
+  // Group all paths except /chat together for transitions to prevent glitches on anchors
+  const transitionKey = location.pathname === '/chat' ? '/chat' : 'home';
+
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+      <Routes location={location} key={transitionKey}>
         <Route path="/" element={
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -35,6 +38,18 @@ const AnimatedRoutes = ({ isDark, setIsDark }) => {
             style={{ width: '100vw', height: '100vh', overflow: 'hidden' }}
           >
             <ChatbotPage theme={isDark ? "dark" : "light"} toggleTheme={() => setIsDark(!isDark)} />
+          </motion.div>
+        } />
+        {/* Catch-all route for hash-based anchors (e.g., #skills becoming /skills) */}
+        <Route path="*" element={
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            className="page-transition-wrapper"
+          >
+            <Portfolio />
           </motion.div>
         } />
       </Routes>

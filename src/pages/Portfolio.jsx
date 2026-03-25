@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../components/header/header';
 import Home from '../components/home/home';
 import About from '../components/about/about';
@@ -12,6 +13,21 @@ import Work from '../components/work/Work';
 import Certificates from '../components/certificates/Certificates';
 
 const Portfolio = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        // Handle scrolling to section based on pathname (for HashRouter anchors)
+        const sectionId = pathname.substring(1); // Remove leading slash
+        if (sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }, [pathname]);
+
     return (
         <>
             <Header />

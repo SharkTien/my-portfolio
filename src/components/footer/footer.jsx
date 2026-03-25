@@ -21,17 +21,17 @@ const Footer = () => {
                 <div className="footer__social">
                 <a href="https://www.instagram.com/ryukita_1552/?fbclid=IwAR1UUg-PKJCjHbARxifAZhic6MQmklJVGkj2x1N3HVXjl1uqqkmT2vAgCZM"
                 className="footer__social-link" target="_blank" rel="noreferrer">
-                <i class="bx bxl-instagram"></i>    
+                <i className="bx bxl-instagram"></i>    
                 </a>
 
                 <a href="https://www.facebook.com/tengzine/"
                 className="footer__social-link" target="_blank" rel="noreferrer">
-                <i class="bx bxl-facebook"></i>    
+                <i className="bx bxl-facebook"></i>    
                 </a>
 
                 <a href="https://twitter.com/h_tengzi"
                 className="footer__social-link" target="_blank" rel="noreferrer">
-                <i class="bx bxl-twitter"></i>    
+                <i className="bx bxl-twitter"></i>    
                 </a>
                 </div>
 
