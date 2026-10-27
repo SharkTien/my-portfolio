@@ -1,65 +1,66 @@
-.toggle-container {
+.uv-toggle {
   position: fixed;
-  bottom: 2em;
+  left: 1.25rem;
+  bottom: 1.25rem;
   z-index: 9999;
-  left: 2em;
-}
-
-.toggle {
-  visibility: hidden;
-}
-
-.toggle+label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  font-size: 1.5em;
-  cursor: pointer;
-  color: var(--primary-color);
+  gap: 0.6rem;
+  padding: 0.35rem 0.85rem 0.35rem 0.35rem;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--paper-3) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--engrave) 30%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 10px 24px -14px var(--shadow-color);
+  color: var(--ink);
+  font-size: var(--tiny-font-size);
+  font-family: var(--mono-font);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.toggle+label::before {
-  content: "";
-  height: 1em;
-  width: 2em;
-  border-radius: 1em;
-  background-color: var(--secondary-color);
-  margin-right: 0.5em;
-  transition: background-color 250ms ease-in-out;
-
-  box-shadow: inset 0px 4px 6px rgba(0, 0, 0, 0.6);
+.uv-toggle__track {
+  position: relative;
+  width: 2.9rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  background-color: var(--paper-2);
 }
 
-.toggle+label::after {
-  content: "";
-  height: 0.8em;
-  width: 0.8em;
-  border-radius: 1em;
-  background-color: var(--primary-color);
+.uv-toggle__knob {
   position: absolute;
-  left: 0.2em;
-  transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
+  top: 0.15rem;
+  left: 0.15rem;
+  display: grid;
+  place-items: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background-color: var(--engrave);
+  color: var(--paper);
+  font-size: 0.85rem;
+  transition: transform 0.4s var(--ease-out), background-color 0.4s;
 }
 
-.toggle:checked+label::after {
-  transform: translateX(100%);
+.uv-toggle.is-uv .uv-toggle__knob {
+  transform: translateX(1.3rem);
+  box-shadow: 0 0 12px var(--engrave);
 }
 
-.title {
-  color: var(--primary-text-color);
-  margin-bottom: 50px;
-}
+/* On small screens the switch moves into the header, beside the menu button, so it never covers text. */
+@media screen and (max-width: 900px) {
+  .uv-toggle {
+    top: calc((var(--header-height) - 2.3rem) / 2);
+    bottom: auto;
+    left: auto;
+    right: calc(clamp(1rem, 4vw, 3rem) + 3.25rem);
+    z-index: calc(var(--z-fixed) + 2);
+    padding-right: 0.35rem;
+    box-shadow: none;
+  }
 
-.box {
-  padding: 20px;
-  border-radius: 10px;
-  background-color: var(--foreground-color);
-  color: var(--secondary-text-color);
-}
-
-@media screen and (max-width: 768px) {
-  .toggle-container {
-    position: relative;
-    top: 2em;
-    right: 2em;
+  .uv-toggle__label {
+    display: none;
   }
 }

@@ -1,62 +1,78 @@
-import React, { useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { getProjectSlug, splitProjectTitle } from "./Data";
+import { withViewTransition, coverTransitionName, rememberWorkScroll } from "../../utils/viewTransition";
+import Seal from "../credential/Seal";
 
-const WorkItems = ({ item }) => {
-    const [toggleState, setToggleState] = useState(0);
+// One entry in the register of works: serial in the margin, a thumbnail plate,
+// the particulars, and a seal that stamps on arrival and opens the overview.
+// forwardRef: AnimatePresence "popLayout" measures each entry through a ref.
+const WorkItems = React.forwardRef(({ item, featured = false }, ref) => {
+    const navigate = useNavigate();
+    const { label, name } = splitProjectTitle(item.title);
+    const slug = getProjectSlug(item);
+    const stack = item.techstack ? item.techstack.split(",").map((s) => s.trim()).slice(0, 5) : [];
+    const serial = String(item.id).padStart(3, "0");
 
-    const toggleTab = (index) => {
-        setToggleState(index);
+    const openOverview = (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+        e.preventDefault();
+        rememberWorkScroll();
+        withViewTransition(() => {
+            navigate(`/project/${slug}`);
+            window.scrollTo({ top: 0, behavior: "instant" });
+        });
     };
 
-    const descriptionWords = item.description ? item.description.split(" ") : [];
-    const isLongDescription = descriptionWords.length > 30;
-    const shortDescription = isLongDescription ? descriptionWords.slice(0, 30).join(" ") + "..." : item.description;
-
     return (
-        <div className="work__card" key={item.id}>
-            <img src={item.image} alt="" className="work__img" />
-            <h3 className="work__title">{item.title}</h3>
-            {item.description && (
-                <div className="work__description-container">
-                    <p className="work__description-short">{shortDescription}</p>
-                    {isLongDescription && (
-                        <span className="work__read-more" onClick={() => toggleTab(1)}>
-                            Read more <i className="bx bx-right-arrow-alt" />
-                        </span>
-                    )}
-                </div>
-            )}
-            {item.techstack && (
-                <div className="work__techstack">
-                    <span className="work__techstack-label">Techstack:</span> {item.techstack}
-                </div>
-            )}
-            <div className="work__buttons-container">
-                <a href={item.link} target="_blank" rel="noreferrer" className="work__button">
-                    Link <i className="bx bx-right-arrow-alt work__button-icon" />
-                </a>
-                {item.github && (
-                    <a href={item.github} target="_blank" rel="noreferrer" className="work__button">
-                        Github <i className="bx bxl-github work__button-icon" />
-                    </a>
-                )}
+        <motion.article
+            ref={ref}
+            layout
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, transition: { duration: 0.15 } }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className={`entry${featured ? " entry--featured" : ""}`}
+        >
+            <div className="entry__margin">
+                <span className="entry__serial mono">No. {serial}</span>
+                {label && <span className="entry__label field-label">{label}</span>}
             </div>
 
-            {isLongDescription && (
-                <div className={toggleState === 1 ? "work__modal active-modal" : "work__modal"}>
-                    <div className="work__modal-content">
-                        <i className="bx bx-x work__modal-close" onClick={() => toggleTab(0)}></i>
-                        <h3 className="work__modal-title">{item.title}</h3>
-                        <p className="work__modal-description">{item.description}</p>
-                        {item.techstack && (
-                            <p className="work__modal-techstack">
-                                <span className="work__techstack-label">Techstack:</span> {item.techstack}
-                            </p>
-                        )}
-                    </div>
+            <div className="entry__plate" style={{ viewTransitionName: coverTransitionName(item) }}>
+                <img src={item.image} alt="" loading="lazy" />
+            </div>
+
+            <div className="entry__body">
+                <h3 className="entry__title">
+                    <a href={`#/project/${slug}`} onClick={openOverview} className="entry__title-link">
+                        {name}
+                    </a>
+                </h3>
+                {item.description && <p className="entry__desc">{item.description}</p>}
+                {stack.length > 0 && <p className="entry__stack mono">{stack.join(" · ")}</p>}
+                <div className="entry__links">
+                    {item.link && (
+                        <a href={item.link} target="_blank" rel="noreferrer" className="entry__link">
+                            <i className="bx bx-link-external" aria-hidden="true" /> Open
+                        </a>
+                    )}
+                    {item.github && (
+                        <a href={item.github} target="_blank" rel="noreferrer" className="entry__link">
+                            <i className="bx bxl-github" aria-hidden="true" /> GitHub
+                        </a>
+                    )}
                 </div>
-            )}
-        </div>
-    )
-}
+            </div>
+
+            <a href={`#/project/${slug}`} onClick={openOverview} className="entry__seal" aria-label={`Read the overview of ${name}`}>
+                <Seal ring={`NO ${serial} · ${(label || "WORK").toUpperCase()} · OVERVIEW`} center="OPEN" sub={serial} size={86} tilt={-10} />
+            </a>
+        </motion.article>
+    );
+});
+
+WorkItems.displayName = "WorkItems";
 
 export default WorkItems;

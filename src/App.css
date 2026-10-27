@@ -1,34 +1,54 @@
+/* Floating entry to the CV chatbot: a vermilion seal that turns when hovered. */
 .floating-chat-btn {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 60px;
-    height: 60px;
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
+    bottom: 1.5rem;
+    right: 1.5rem;
     z-index: var(--z-fixed);
-    transition: .3s;
-    cursor: pointer;
+    display: grid;
+    place-items: center;
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 50%;
+    background-color: var(--seal);
+    color: #fff;
+    font-size: 1.6rem;
+    box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px var(--seal), 0 14px 28px -12px var(--shadow-color);
+    transition: transform 0.4s var(--ease-out);
+}
+
+.floating-chat-btn.is-hidden {
+    transform: translateY(calc(100% + 2rem)) rotate(20deg);
 }
 
 .floating-chat-btn:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    transform: translateY(-0.25rem);
+    transform: rotate(-12deg) scale(1.06);
 }
 
 @media screen and (max-width: 768px) {
     .floating-chat-btn {
-        bottom: 5rem;
-        right: 1rem;
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
+        bottom: 0.75rem;
+        right: 0.75rem;
+        width: 3.25rem;
+        height: 3.25rem;
+        font-size: 1.35rem;
+    }
+}
+
+/* Theme switch: the new page grows as a circle from the switch in the lower left. */
+.theme-switching::view-transition-old(root) {
+    animation: none;
+}
+
+.theme-switching::view-transition-new(root) {
+    animation: uv-spread 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes uv-spread {
+    from {
+        clip-path: circle(0% at 3rem calc(100% - 2.5rem));
+    }
+
+    to {
+        clip-path: circle(150% at 3rem calc(100% - 2.5rem));
     }
 }

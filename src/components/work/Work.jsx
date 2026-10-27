@@ -1,74 +1,110 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo, useEffect } from "react";
+import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import "./work.css";
 import { projectsData } from "./Data";
 import { projectsNav } from "./Data";
 import WorkItems from "./WorkItems";
+import { Division } from "../credential/Sections";
+
+// Two columns: an even page, plus the featured entry that spans both when showing all.
+const ITEMS_PER_PAGE = 6;
+const STATE_KEY = "work-view";
+
+// The filter and "view more" survive a round trip to a project overview.
+const readSavedView = () => {
+    try {
+        return JSON.parse(sessionStorage.getItem(STATE_KEY)) ?? { filter: "all", showAll: false };
+    } catch {
+        return { filter: "all", showAll: false };
+    }
+};
 
 const Work = () => {
-    const [item, setItem] = useState({name:'all'});
-    const [projects, setProjects] = useState([]);
-    const [active, setActive] = useState(0);
-    const [showAll, setShowAll] = useState(false);
-    const ITEMS_PER_PAGE = 6;
+    const [view, setView] = useState(readSavedView);
+    const { filter, showAll } = view;
 
     useEffect(() => {
-        if (item.name === "all") {
-            // Sort projects in descending order by id
-            const sortedProjects = [...projectsData].sort((a, b) => b.id - a.id);
-            setProjects(sortedProjects);
+        try {
+            sessionStorage.setItem(STATE_KEY, JSON.stringify(view));
+        } catch {
+            /* storage unavailable */
         }
-        else {
-            const newProjects = projectsData
-                .filter((project) => {
-                    return project.category.map(category => category.toLowerCase()).includes(item.name.toLowerCase());
-                })
-                .sort((a, b) => b.id - a.id); // Sort filtered projects in descending order
-            setProjects(newProjects)
-        }
-        setShowAll(false);
-    }, [item]);
+    }, [view]);
 
-    const handleClick = (e, index) => {
-        setItem({name: e.target.textContent.toLowerCase()});
-        setActive(index);
-    }
+    // The hero's audience doors switch the register to their filter.
+    useEffect(() => {
+        const onFilter = (e) => setView({ filter: e.detail, showAll: false });
+        window.addEventListener("work-filter", onFilter);
+        return () => window.removeEventListener("work-filter", onFilter);
+    }, []);
 
-    const displayedProjects = showAll ? projects : projects.slice(0, ITEMS_PER_PAGE);
-    const hasMoreProjects = projects.length > ITEMS_PER_PAGE;
+    const projects = useMemo(() => {
+        const sorted = [...projectsData].sort((a, b) => b.id - a.id);
+        if (filter === "all") return sorted;
+        return sorted.filter((project) =>
+            project.category.map((category) => category.toLowerCase()).includes(filter.toLowerCase())
+        );
+    }, [filter]);
+
+    const pageSize = ITEMS_PER_PAGE + (filter === "all" ? 1 : 0);
+    const displayedProjects = showAll ? projects : projects.slice(0, pageSize);
+    const hasMoreProjects = projects.length > pageSize;
 
     return (
         <div>
-            <section className="work section" id="work">
-                <h2 className="section__title">Work</h2>
-                <span className="section__subtitle">My experiences</span>
+            <section className="work section container" id="work">
+                <Division title="Work" note="Register of works. Each seal opens the entry's overview." />
 
-                <div className="work__filters">
-                    {projectsNav.map((item, index) => {
-                        return <span onClick={(e) => {
-                            handleClick(e, index);
-                        }} className={`work__item ${active === index ? "active-work" : ""}`} key={index}>{item.name}</span>
-                    })}
-                </div>
-                <div className="work__container container grid">
-                    {displayedProjects.map((item) => {
-                        return <WorkItems item={item} key={item.id} />
-                    })}
-                </div>
+                <LayoutGroup id="work-filters">
+                    <div className="work__filters" role="tablist" aria-label="Filter projects">
+                        {projectsNav.map((nav) => {
+                            const isActive = filter === nav.name;
+                            return (
+                                <button
+                                    type="button"
+                                    role="tab"
+                                    aria-selected={isActive}
+                                    onClick={() => setView({ filter: nav.name, showAll: false })}
+                                    className={`work__item ${isActive ? "active-work" : ""}`}
+                                    key={nav.name}
+                                >
+                                    {isActive && (
+                                        <motion.span
+                                            layoutId="work-filter-pill"
+                                            className="work__item-pill"
+                                            transition={{ type: "spring", stiffness: 420, damping: 36 }}
+                                        />
+                                    )}
+                                    <span className="work__item-text">{nav.name}</span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </LayoutGroup>
+
+                <motion.div layout className="work__register">
+                    <AnimatePresence mode="popLayout" initial={false}>
+                        {displayedProjects.map((item, index) => (
+                            <WorkItems item={item} key={item.id} featured={index === 0 && filter === "all"} />
+                        ))}
+                    </AnimatePresence>
+                </motion.div>
+
                 {hasMoreProjects && !showAll && (
                     <div className="work__fade-container">
                         <div className="work__fade"></div>
-                        <button 
+                        <button
                             className="button button--flex work__more-btn"
-                            onClick={() => setShowAll(true)}
+                            onClick={() => setView({ filter, showAll: true })}
                         >
-                            View More
-                            <i className="uil uil-arrow-right button__icon"></i>
+                            View {projects.length - pageSize} more
+                            <i className="uil uil-arrow-down button__icon"></i>
                         </button>
                     </div>
                 )}
             </section>
         </div>
-    )
-}
+    );
+};
 
-export default Work  
+export default Work;

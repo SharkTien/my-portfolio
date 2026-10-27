@@ -1,47 +1,73 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import Header from '../components/header/header';
-import Home from '../components/home/home';
-import About from '../components/about/about';
-import Skills from '../components/skills/Skills';
-import Qualification from '../components/qualification/qualification';
-import Research from '../components/research/Research';
-import Footer from '../components/footer/footer';
-import ScrollUp from '../components/scrollup/scrollup';
-import Marquee from '../components/marquee/Marquee';
+import CredentialHero from '../components/credential/CredentialHero';
+import { Holder, Register, Evidence, Annex, Contact } from '../components/credential/Sections';
+import { Band, Fibres } from '../components/credential/Guilloche';
+import { Field, ProofScene, Numbers } from '../components/credential/Fields';
 import Work from '../components/work/Work';
-import Certificates from '../components/certificates/Certificates';
+import '../components/credential/credential.css';
 
 const Portfolio = () => {
-    const { pathname } = useLocation();
+    const { pathname, state } = useLocation();
+    const { scrollYProgress } = useScroll();
+    const progress = useSpring(scrollYProgress, { stiffness: 160, damping: 30, mass: 0.3 });
+
+    // Coming back from a project overview: land exactly where the visitor left,
+    // synchronously, so the cover image can morph back into its entry.
+    useLayoutEffect(() => {
+        if (typeof state?.restoreScroll === 'number') {
+            window.scrollTo({ top: state.restoreScroll, behavior: 'instant' });
+        }
+    }, [state]);
 
     useEffect(() => {
+        if (typeof state?.restoreScroll === 'number') return;
         // Handle scrolling to section based on pathname (for HashRouter anchors)
-        const sectionId = pathname.substring(1); // Remove leading slash
+        const sectionId = pathname.substring(1);
         if (sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
+            document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
         } else {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    }, [pathname]);
+    }, [pathname, state]);
 
     return (
         <>
+            <motion.div className="scroll-progress" style={{ scaleX: progress }} aria-hidden="true" />
+            {/* Security paper: engraved bands and embedded fibres behind the whole document. */}
+            <div className="ground" aria-hidden="true">
+                <Band className="ground__band ground__band--top" />
+                <Band className="ground__band ground__band--bottom" lines={14} />
+                <Fibres className="ground__fibres" />
+            </div>
             <Header />
             <main className="main">
-                <Home />
-                <Marquee />
-                <About />
-                <Skills />
-                <Qualification />
-                <Research />
-                <Work />
+                <CredentialHero />
+                <ProofScene />
+                <Field tone="sand" arch="right" as="div">
+                    <Holder />
+                </Field>
+                <Field tone="red" arch="left" as="div">
+                    <Numbers />
+                </Field>
+                <Field tone="paper" arch="center" as="div">
+                    <Work />
+                </Field>
+                <Field tone="teal" arch="right" as="div">
+                    <Annex />
+                </Field>
+                <Field tone="paper" arch="left" as="div">
+                    <Register />
+                </Field>
+                <Field tone="sage" arch="center" as="div">
+                    <Evidence />
+                </Field>
             </main>
-            <Footer />
-            <ScrollUp />
+            <Field tone="ink" arch="right" as="div" className="field--footer">
+                <Contact />
+            </Field>
         </>
     );
 };

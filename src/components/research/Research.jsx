@@ -1,7 +1,7 @@
 import React from "react";
 import "./research.css";
 
-const researchList = [
+export const researchList = [
   {
     id: 1,
     title: "SHREC 2025: Retrieval of Optimal Objects for Multi-modal Enhanced Language and Spatial Assistance (ROOMELSA)",

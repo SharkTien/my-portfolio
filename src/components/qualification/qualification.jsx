@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import "./qualification.css";
+import ntcLogo from "../../assets/logos/ntc.jpg";
+import tgnLogo from "../../assets/logos/tgn.jpg";
+import avepointLogo from "../../assets/logos/avepoint.jpg";
+import aiesecLogo from "../../assets/logos/aiesec.jpg";
+import uitLogo from "../../assets/logos/uit.jpg";
+import kyotoLogo from "../../assets/logos/kyoto.jpg";
+import courseraLogo from "../../assets/logos/coursera.svg";
 import Certificates from "../certificates/Certificates";
 
-const educationData = [
+export const educationData = [
     {
         title: "Google Data Analytics Professional Certificate(v.3)",
         subtitle: "Google/Coursera",
+        logo: courseraLogo,
         link: "https://www.credly.com/badges/99953c7a-127a-4055-9af4-2bbcc42fcc3e/linked_in_profile",
         date: "3/2026",
         isHighSchool: false
@@ -13,6 +21,7 @@ const educationData = [
     {
         title: "Student Exchange Program",
         subtitle: "Kyoto University (Graduate School of Global Environmental Studies)",
+        logo: kyotoLogo,
         date: "8/2025",
         isHighSchool: false
     },
@@ -37,8 +46,16 @@ const educationData = [
     },
     {
         title: "Bachelor of Artificial Intelligence",
-        subtitle: "VNUHCM - University of Information Technology | GPA: 3.5/4.0",
-        date: "2023 - 2027",
+        subtitle: "VNUHCM - University of Information Technology | GPA: 83.7/100",
+        logo: uitLogo,
+        date: "9/2023 - 8/2026",
+        isHighSchool: false
+    },
+    {
+        title: "First-year Excellence Scholarship",
+        subtitle: "VNUHCM - University of Information Technology",
+        logo: uitLogo,
+        date: "2024",
         isHighSchool: false
     },
     {
@@ -67,28 +84,51 @@ const educationData = [
     }
 ];
 
-const experienceData = [
+export const experienceData = [
+    {
+        title: "AI Engineer",
+        subtitle: "TGN Digital",
+        date: "9/2026 - Present",
+        logo: tgnLogo,
+        isHighSchool: false
+    },
+    {
+        title: "AI Engineer",
+        subtitle: "Nhat Tien Chung IT Telecoms (NTC AI) · Ho Chi Minh City",
+        date: "8/2026 - Present",
+        logo: ntcLogo,
+        projects: [
+            { name: "NTC Physics Studio (Isaac Lab)", href: "#/project/22-ai-ntc-physics-studio-robot-learning-on-nvidia-dgx-spark" },
+            { name: "AI Attendance System" },
+            { name: "AI Agent for Sales & Customer Engagement" },
+        ],
+        isHighSchool: false
+    },
     {
         title: "Developer Trainee",
         subtitle: "AvePoint",
+        logo: avepointLogo,
         date: "11/2025 - 2/2026",
         isHighSchool: false
     },
     {
         title: "National Marketing Manager of Data & Automation",
         subtitle: "AIESEC in Vietnam",
+        logo: aiesecLogo,
         date: "7/2025 - 1/2026",
         isHighSchool: false
     },
     {
         title: "International Relations & Matching Team",
         subtitle: "AIESEC in Vietnam",
+        logo: aiesecLogo,
         date: "3/2024 - 1/2025",
         isHighSchool: false
     },
     {
         title: "Dev Freelancer",
         subtitle: "Digital TGN",
+        logo: tgnLogo,
         date: "10/2024 - 10/2025",
         isHighSchool: false
     },

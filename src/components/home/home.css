@@ -44,7 +44,21 @@
 .home__title {
     font-family: var(--heading-font);
     font-size: var(--big-font-size);
+    line-height: 1.05;
     margin-bottom: var(--mb-0-25);
+}
+
+.home__title-word {
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 0.06em;
+    margin-right: 0.25em;
+    vertical-align: top;
+}
+
+.home__title-char {
+    display: inline-block;
+    transform-origin: 0 100%;
 }
 
 .home__hand {

@@ -8,14 +8,190 @@ import avepoint_cert from '../../assets/cert/Avepoint.png';
 import nvidia_cert from '../../assets/cert/NVIDIA.png';
 import udemy_cert from '../../assets/cert/udemy_AIreact.png';
 import aiesec_cert from '../../assets/cert/AIESEC_1.png';
+import soict_cert from '../../assets/cert/soict2025.webp';
+import coursera_logo from '../../assets/logos/coursera.svg';
+import nv_nvidia_certified_associate_accelerated_data_science from "../../assets/cert/nvidia/nvidia-certified-associate-accelerated-data-science.webp";
+import nv_ai_advisor_program_certification from "../../assets/cert/nvidia/ai-advisor-program-certification.webp";
+import nv_ai_factory_reference_architectures_certificate from "../../assets/cert/nvidia/ai-factory-reference-architectures-certificate.webp";
+import nv_nvidia_enterprise_support_portal_certificate from "../../assets/cert/nvidia/nvidia-enterprise-support-portal-certificate.webp";
+import nv_dgx_ai_compute_sales_curriculum from "../../assets/cert/nvidia/dgx-ai-compute-sales-curriculum.webp";
+import nv_ai_ignite_curriculum from "../../assets/cert/nvidia/ai-ignite-curriculum.webp";
+import nv_cumulus_linux_essentials_certificate from "../../assets/cert/nvidia/cumulus-linux-essentials-certificate.webp";
+import nv_infiniband_essentials_certificate from "../../assets/cert/nvidia/infiniband-essentials-certificate.webp";
+import nv_netq_deployment_and_installation_certificate from "../../assets/cert/nvidia/netq-deployment-and-installation-certificate.webp";
+import nv_npn_marketing_guidelines_curriculum from "../../assets/cert/nvidia/npn-marketing-guidelines-curriculum.webp";
+import nv_visualization_technical_curriculum from "../../assets/cert/nvidia/visualization-technical-curriculum.webp";
+import nv_dgx_ai_compute_installation_curriculum from "../../assets/cert/nvidia/dgx-ai-compute-installation-curriculum.webp";
+import nv_dgx_ai_compute_technical_curriculum from "../../assets/cert/nvidia/dgx-ai-compute-technical-curriculum.webp";
+import nv_embedded_compute_technical_curriculum from "../../assets/cert/nvidia/embedded-compute-technical-curriculum.webp";
+import nv_nvidia_enterprise_software_technical_curriculum from "../../assets/cert/nvidia/nvidia-enterprise-software-technical-curriculum.webp";
+import nv_compute_technical_curriculum from "../../assets/cert/nvidia/compute-technical-curriculum.webp";
+import nv_ai_infrastructure_technologies_curriculum from "../../assets/cert/nvidia/ai-infrastructure-technologies-curriculum.webp";
+import nv_networking_technical_curriculum from "../../assets/cert/nvidia/networking-technical-curriculum.webp";
+import nv_nvidia_technologies_curriculum from "../../assets/cert/nvidia/nvidia-technologies-curriculum.webp";
 
 
-const certificatesData = [
+export const certificatesData = [
+    {
+        id: 100,
+        title: "NVIDIA Certified Associate: Accelerated Data Science",
+        issuer: "NVIDIA",
+        image: nv_nvidia_certified_associate_accelerated_data_science,
+        link: "https://drive.google.com/file/d/1BiSLiaPJN0PdQp1aNe7jlSpXZp0nbXBS/view",
+        date: "Sep 16, 2026",
+        featured: true,
+    },
+    {
+        id: 101,
+        title: "NVIDIA AI Advisor: AI Ignite",
+        issuer: "NVIDIA",
+        image: nv_ai_advisor_program_certification,
+        link: "https://www.credly.com/go/Gb9gLV3f",
+        date: "Aug 28, 2026",
+        featured: true,
+    },
+    {
+        id: 102,
+        title: "AI Factory Reference Architectures",
+        issuer: "NVIDIA",
+        image: nv_ai_factory_reference_architectures_certificate,
+        link: "https://drive.google.com/file/d/1bPBYzL5BcUOHL-tvSg7xuOH24oNbvFOy/view",
+        date: "Sep 3, 2026",
+    },
+    {
+        id: 103,
+        title: "NVIDIA Enterprise Support Portal",
+        issuer: "NVIDIA",
+        image: nv_nvidia_enterprise_support_portal_certificate,
+        link: "https://drive.google.com/file/d/1VQKo_YAhBYSseL3FjnJjcQKlvXe93zD5/view",
+        date: "Sep 3, 2026",
+    },
+    {
+        id: 104,
+        title: "DGX AI Compute Sales Curriculum",
+        issuer: "NVIDIA",
+        image: nv_dgx_ai_compute_sales_curriculum,
+        link: "https://drive.google.com/file/d/14XB9mF0lMniexOIgaAIzPA2t6ybz5EVe/view",
+        date: "Sep 2, 2026",
+    },
+    {
+        id: 105,
+        title: "AI Ignite Curriculum",
+        issuer: "NVIDIA",
+        image: nv_ai_ignite_curriculum,
+        link: "https://drive.google.com/file/d/1VsSf1crKjBECkB_JNBW7sH7iCHq95sWF/view",
+        date: "Aug 28, 2026",
+    },
+    {
+        id: 106,
+        title: "Cumulus Linux Essentials",
+        issuer: "NVIDIA",
+        image: nv_cumulus_linux_essentials_certificate,
+        link: "https://drive.google.com/file/d/1dm01fl6TCUvxT4cTVZ4iurg2bLmwpE1o/view",
+        date: "Aug 28, 2026",
+    },
+    {
+        id: 107,
+        title: "InfiniBand Essentials",
+        issuer: "NVIDIA",
+        image: nv_infiniband_essentials_certificate,
+        link: "https://drive.google.com/file/d/1DspzrYfL-plsH2aK2ZGoPL4uEAe2kmk2/view",
+        date: "Aug 28, 2026",
+    },
+    {
+        id: 108,
+        title: "NetQ Deployment and Installation",
+        issuer: "NVIDIA",
+        image: nv_netq_deployment_and_installation_certificate,
+        link: "https://drive.google.com/file/d/1FY244pjN3Tdb8FNea6yW3j93mwCgeLac/view",
+        date: "Aug 28, 2026",
+    },
+    {
+        id: 109,
+        title: "NPN Marketing Guidelines Curriculum",
+        issuer: "NVIDIA",
+        image: nv_npn_marketing_guidelines_curriculum,
+        link: "https://drive.google.com/file/d/1RNoKGPO-d462c8S90okb-btPq01zE4kg/view",
+        date: "Aug 28, 2026",
+    },
+    {
+        id: 110,
+        title: "Visualization Technical Curriculum",
+        issuer: "NVIDIA",
+        image: nv_visualization_technical_curriculum,
+        link: "https://drive.google.com/file/d/12KzEQdb_09WM3y0y9GarCQfnH8-7H4Sh/view",
+        date: "Aug 28, 2026",
+    },
+    {
+        id: 111,
+        title: "DGX AI Compute Installation Curriculum",
+        issuer: "NVIDIA",
+        image: nv_dgx_ai_compute_installation_curriculum,
+        link: "https://drive.google.com/file/d/1tt8hEDXk2dNK2vEfOtGhaPW6tGIXjJfJ/view",
+        date: "Aug 27, 2026",
+    },
+    {
+        id: 112,
+        title: "DGX AI Compute Technical Curriculum",
+        issuer: "NVIDIA",
+        image: nv_dgx_ai_compute_technical_curriculum,
+        link: "https://drive.google.com/file/d/1SgD-t0HZFnZpvMyW9Ows-ATOjTUOyacq/view",
+        date: "Aug 27, 2026",
+    },
+    {
+        id: 113,
+        title: "Embedded Compute Technical Curriculum",
+        issuer: "NVIDIA",
+        image: nv_embedded_compute_technical_curriculum,
+        link: "https://drive.google.com/file/d/1RhuR3o7Zonezvtm2dJV_jSuLUYsTTw8z/view",
+        date: "Aug 27, 2026",
+    },
+    {
+        id: 114,
+        title: "NVIDIA Enterprise Software Technical Curriculum",
+        issuer: "NVIDIA",
+        image: nv_nvidia_enterprise_software_technical_curriculum,
+        link: "https://drive.google.com/file/d/1GzWRlQA5pYLoTf-dqDYfP6otOFvpmXYN/view",
+        date: "Aug 27, 2026",
+    },
+    {
+        id: 115,
+        title: "Compute Technical Curriculum",
+        issuer: "NVIDIA",
+        image: nv_compute_technical_curriculum,
+        link: "https://drive.google.com/file/d/1eboXZ8hCTVzeAgbvfBxt73m7ykzcOWH0/view",
+        date: "Aug 26, 2026",
+    },
+    {
+        id: 116,
+        title: "AI Infrastructure Technologies Curriculum",
+        issuer: "NVIDIA",
+        image: nv_ai_infrastructure_technologies_curriculum,
+        link: "https://drive.google.com/file/d/1aK0TwP14__m68Gv_qYWJSZSRJzaXTGTa/view",
+        date: "Aug 24, 2026",
+    },
+    {
+        id: 117,
+        title: "Networking Technical Curriculum",
+        issuer: "NVIDIA",
+        image: nv_networking_technical_curriculum,
+        link: "https://drive.google.com/file/d/1WKjrVGWgjwekyWfz6j6V1KtiUPgiI8xj/view",
+        date: "Aug 23, 2026",
+    },
+    {
+        id: 118,
+        title: "NVIDIA Technologies Curriculum",
+        issuer: "NVIDIA",
+        image: nv_nvidia_technologies_curriculum,
+        link: "https://drive.google.com/file/d/1CEsw4vRNYVMoKZ-dnimuPQjeqFUG8jLS/view",
+        date: "Aug 19, 2026",
+    },
     {
         id: 1,
         title: "Google Data Analytics Professional Certificate",
         issuer: "Google / Coursera",
         image: google_cert,
+        logo: coursera_logo,
         link: "https://www.credly.com/badges/99953c7a-127a-4055-9af4-2bbcc42fcc3e/linked_in_profile",
         date: "March 16, 2026"
     },
@@ -34,6 +210,14 @@ const certificatesData = [
         link: "https://drive.google.com/file/d/1ATdkuaVHFuWLMb-CtfU_FS5XzKPX8fiR/view?usp=sharing",
         image: avepoint_cert,
         date: "Feb 6, 2026"
+    },
+    {
+        id: 9,
+        title: "Certificate of Attendance – SoICT 2025, 14th International Symposium on Information and Communication Technology",
+        issuer: "SoICT 2025 · Hanoi University of Science and Technology & VNUHCM-University of Science",
+        image: soict_cert,
+        link: "https://drive.google.com/file/d/1iFp5efrf05b4I3qUpZd5ghBiX2EJYObj/view",
+        date: "Dec 14, 2025"
     },
     {
         id: 4,
