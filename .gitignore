@@ -13,5 +13,5 @@ backend/node_modules
 *.mp4
 .impeccable/review/
 .impeccable/decision/
-src/assets/avatar_2.png
+!src/assets/projectPic/surgical/*.mp4
 /image.png

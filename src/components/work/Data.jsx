@@ -49,10 +49,104 @@ import phyResults from "../../assets/projectPic/physics/results.webp";
 import phyScene from "../../assets/projectPic/physics/scene-map.webp";
 import phySystem from "../../assets/projectPic/physics/system.webp";
 import phyCard from "../../assets/projectPic/physics/isaac-card.webp";
+import surCover from "../../assets/projectPic/surgical/cover.webp";
+import surPoster from "../../assets/projectPic/surgical/poster.webp";
+import surClip from "../../assets/projectPic/surgical/report.mp4";
+import surReport from "../../assets/projectPic/surgical/report.pdf";
+import surInverse from "../../assets/projectPic/surgical/stage1-inverse.webp";
+import surPolicy from "../../assets/projectPic/surgical/stage2-policy.webp";
+import surForward from "../../assets/projectPic/surgical/stage3-forward.webp";
+import surSim from "../../assets/projectPic/surgical/stage4-sim.webp";
+import surModels from "../../assets/projectPic/surgical/models.webp";
+import surLatency from "../../assets/projectPic/surgical/latency.webp";
+import surStudioSim from "../../assets/projectPic/surgical/studio-sim.webp";
+import surStudioInverse from "../../assets/projectPic/surgical/studio-inverse.webp";
+import surStudioForward from "../../assets/projectPic/surgical/studio-forward.webp";
 
 
 
 export const projectsData = [
+    {
+        id: 23,
+        image: surCover,
+        title: "AI| Surgical Robot Pipeline - Cosmos3-H World Model on NVIDIA GB300",
+        category: ['AI', 'application'],
+        link: surReport,
+        video: surClip,
+        description: "A four-stage pipeline for the dVRK surgical robot, built into NTC Physics Studio. One world model, NVIDIA Cosmos3-H-Embodied-Nano (16B parameters), reads both arms' motion from recorded endoscopic video, proposes the next motion, and forecasts the video; a virtual dVRK in Isaac Lab 3.0 then replays the motion in a simulated operating room, so it can be tested without the real robot.",
+        techstack: "NVIDIA Cosmos3-H-Embodied-Nano, Isaac Lab 3.0, Newton, MuJoCo-Warp, URDF, USD, PyTorch, Docker, NVIDIA GB300, Python",
+        overview: {
+            tagline: "Can an AI that only watches endoscopic video understand what the surgical robot is doing? One world model reads it, plans it and predicts it; a virtual robot replays it.",
+            role: "AI Engineer at NTC AI: built the four-stage pipeline, the benchmark and the report",
+            year: "2026",
+            problem: "Surgical robot research has hours of recorded endoscopic video but rarely the joint data behind it, and every new idea about how the robot should move is hard to try: running the real dVRK is slow, costly and needs a supervised, safe setup.",
+            idea: "Use one world model for every AI step. Cosmos3-H-Embodied-Nano runs in three modes on the same weights: inverse reads the arms' motion from video, policy proposes the next motion, forward predicts the video. A virtual dVRK built from URDF, in a hospital room built from USD, then replays the motion in Isaac Lab and reports reach, collisions and how far it pushes the tissue.",
+            pipeline: {
+                caption: "Recorded video in, a virtual robot replaying it out. Every stage is a job on the GB300, run from the Studio.",
+                inputs: [
+                    { id: "video", kind: "Data", title: "Recorded video", steps: ["Open-H, Hamlyn dVRK", "12 cases, 5 tasks", "2.4 s clips, 10 fps"] },
+                    { id: "robot", kind: "Robot", title: "Virtual dVRK", steps: ["psm_classic_lnd.urdf", "6 arm joints + gripper", "hospital.usd, tissue phantom"] },
+                ],
+                stages: [
+                    { id: "inverse", title: "1. Label from video", detail: "Cosmos3-H, inverse mode: 25 endoscope frames in, 24 steps × 2 arms of tool-tip pose and gripper angle out." },
+                    { id: "policy", title: "2. Decide", detail: "Cosmos3-H, policy mode: the frame at t, both arms' pose and an instruction such as \"pass the needle to the other hand\" in, the next motion out." },
+                    { id: "forward", title: "3. Forecast video", detail: "Cosmos3-H, forward mode: the first frame and the recorded motion in, 25 generated endoscope frames out." },
+                    { id: "sim", title: "4. Simulate", detail: "Isaac Lab 3.0 on Newton (MuJoCo-Warp, 120 Hz): two virtual dVRK arms replay the motion read in stage 1.", guard: "Each clip restarts from the recorded state; out-of-reach commands, collisions and tissue displacement are logged." },
+                ],
+                outputs: [
+                    { id: "csv", title: "Motion CSV", detail: "24 steps × 2 arms per clip: position in mm, orientation quaternion, gripper in rad." },
+                    { id: "mp4", title: "Forecast video", detail: "Generated endoscope clips side by side with the recording." },
+                    { id: "simvid", title: "Simulation videos", detail: "Virtual endoscope, full room and recording side by side, plus commanded vs. reached logs." },
+                ],
+            },
+            flows: [
+                {
+                    name: "Four stages on one case",
+                    tone: "orange",
+                    clip: surClip,
+                    poster: surPoster,
+                    clipCaption: "The video report: the Studio running all four stages on recorded dVRK cases (narrated in Vietnamese).",
+                    summary: "Hamlyn dVRK knot tying (knot_tying_ep29), clip 1 of 5, through every stage.",
+                    steps: [
+                        { title: "Label from video", image: surInverse, text: "Solid lines are the real tool tips, dashed lines the model's reading. Across 52 clips the model stays within 1.56 mm on average of the recording, and under 2.36 mm even at the end of the 2.4 s clip." },
+                        { title: "Decide", image: surPolicy, text: "From the current frame alone the model proposes the next motion. It is harder: 8.19 mm on average, and here the right arm heads up while the recording goes sideways. It only beats holding the pose still after 0.6 s." },
+                        { title: "Forecast video", image: surForward, text: "Left the recording, right the model's video from the first frame and the recorded motion: PSNR 31.6 dB and SSIM 0.930, drifting from 34.7 dB at 0.1 s to 29.9 dB at 2.4 s." },
+                        { title: "Simulate", image: surSim, text: "The recording, a virtual endoscope placed where the real camera was, and the full hospital room. The virtual arms reach their commands within 0.45 mm on average; the tissue was pushed more than 1 mm in 7 of 52 clips." },
+                    ],
+                },
+                {
+                    name: "Why one model",
+                    tone: "blue",
+                    summary: "NVIDIA ships three models for surgical robots; only one covers all three AI stages.",
+                    steps: [
+                        { title: "Compare", image: surModels, text: "Cosmos3-H (16B) reads motion, proposes motion and forecasts video. GR00T-H (3B) only proposes; Cosmos-H (2B) only forecasts. Pairing the two still leaves no way to label motion from video." },
+                        { title: "Cost of a second of output", image: surLatency, text: "Cosmos3-H needs about 30 GB of GPU memory and 1.6 to 1.8 s per second of output, versus 6.4 to 10.5 s for Cosmos-H. The trade: more memory, slower than real time, but one model for the whole loop." },
+                    ],
+                },
+            ],
+            highlights: [
+                { title: "Measured, not demoed", text: "Every number comes from the run's downloadable bundle: per-step error in mm against the recording for 1,248 steps per arm, PSNR and SSIM for video, commanded vs. reached for the simulation." },
+                { title: "An honest baseline", text: "Policy output is compared against simply holding the pose still. It loses until 0.6 s, a result the report states plainly rather than hides." },
+                { title: "Repeatable", text: "Re-running with the same seed reproduces labelling exactly (2,496 of 2,496 steps) and the simulation to within 0.05 mm." },
+                { title: "Run on a shared GB300", text: "Each Cosmos3-H job used 23–39 % of SMs and at most 31.9 GiB of VRAM next to vLLM and ComfyUI; the report logs incidents such as NVML loss and an RTX/DLSS render failure, and the workarounds." },
+            ],
+            facts: [
+                { value: "4", label: "pipeline stages, three on one model" },
+                { value: "52", label: "2.4 s clips from 12 dVRK cases" },
+                { value: "1.56", label: "mm mean error labelling motion from video" },
+                { value: "0.930", label: "SSIM of the forecast video" },
+                { value: "0.45", label: "mm mean commanded vs. reached in simulation" },
+            ],
+            gallery: [
+                { image: surStudioSim, size: "wide", caption: "The Studio: recording, virtual endoscope and the dVRK in the hospital room." },
+                { image: surSim, size: "wide", caption: "Stage 4 in Isaac Lab: the virtual dVRK replays motion read from video." },
+                { image: surStudioInverse, caption: "Stage 1 in the Studio: real vs. model trajectories." },
+                { image: surStudioForward, caption: "Stage 3 in the Studio: recorded vs. forecast video." },
+                { image: surModels, caption: "Which NVIDIA model covers which stage." },
+                { image: surLatency, caption: "Time to produce one second of output." },
+            ],
+        },
+    },
     {
         id: 22,
         image: phyReplay,

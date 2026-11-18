@@ -169,7 +169,7 @@ const ProjectOverview = () => {
                         </div>
                     </motion.dl>
 
-                    {(project.link || project.github) && (
+                    {(project.link || project.github || project.video) && (
                         <motion.div
                             className="project__actions"
                             initial={{ opacity: 0 }}
@@ -178,7 +178,12 @@ const ProjectOverview = () => {
                         >
                             {project.link && (
                                 <a href={project.link} target="_blank" rel="noreferrer" className="project__action project__action--primary">
-                                    Open project <i className="uil uil-arrow-up-right" />
+                                    {/\.pdf($|\?)/i.test(project.link) ? "Read report" : "Open project"} <i className="uil uil-arrow-up-right" />
+                                </a>
+                            )}
+                            {project.video && (
+                                <a href={project.video} target="_blank" rel="noreferrer" className="project__action">
+                                    <i className="uil uil-play-circle" /> Watch video report
                                 </a>
                             )}
                             {project.github && (
